@@ -1,0 +1,98 @@
+set <string> s;
+    s.insert("abc");      // log(n)
+    s.insert("bcd");
+    auto it = s.find("abc");      //log(n)
+    if(it != s.end()){
+        cout << "(*it)" << endl;              ////// frm line 5-6,if the element is present in set,it will print otherwise no
+    }
+    printset(s);
+how to erase a element frm a set
+//1st method --- 
+/*auto it = s.find("abc");
+    if(it != s.end()){
+        s.erase(it);
+    }        this method erases only the first occurenece of dat "it" element*/
+    
+//2nd method
+s.erase("abc");           /// it rubs all occurences of abc frm the set
+    
+func to print a set
+void printset(set <string> &s) {
+    for (auto &pr : s) {      ///// 1st method
+        cout << pr << endl;
+    }
+    
+    
+    for(auto it : s.begin(); it != s.end() ; ++it){            /////or u can try this 2nd method
+        cout << *it <<endl;
+}
+
+// set prints in lexographical order
+
+
+
+///////////////////////////////////////////////////////
+ques - given n strings,print unique strings lexographically
+ANS --------
+void printset(set <string> &s) {
+    for (auto &pr : s) {
+        cout << pr << endl;
+    }
+}
+
+int main() {
+    set <string> s;
+    int n;
+    cin >> n;
+    while(n--){
+        string str;
+        cin >> str;
+        s.insert(str);
+    }
+    printset(s);
+}
+///////////////////////////////////////////////////////
+
+unorderd set
+
+unordered_set <string> s;
+    s.insert("abc");      // o(1)
+    s.insert("bcd");
+    auto it = s.find("abc");      //o(1)
+    if(it != s.end()){
+        cout << "(*it)" << endl;              ////// frm line 5-6,if the element is present in set,it will print otherwise no
+    }
+
+everything else same
+////////////////////////////////////////
+ques - given n strings and q queries,for each query print whether its present in the set or nt
+
+
+ans - 
+int main() {
+    unordered_set <string> s;
+    int n;
+    cin >> n;
+    while(n--){
+        string str;
+        cin >> str;
+        s.insert(str);        
+    }
+    int q;
+    cin >> q;
+    while(q--){
+        string str;
+        cin >> str;
+        if (s.find(str) == s.end())
+        {
+            cout << " NO" << endl;
+        }
+        else{
+            cout << "YES" << endl;
+        }
+    }
+}
+
+
+
+
